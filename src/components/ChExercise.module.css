@@ -1,0 +1,134 @@
+/* ChExercise.module.css */
+
+.container {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #fceabb;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 1rem;
+}
+
+.menu a {
+  color: rgb(8, 8, 8);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.changeExercise {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.rutina {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.botonEjercicio {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  min-width: 150px;
+}
+
+.botonEjercicio:hover {
+  transform: scale(1.05);
+}
+
+.ejercicioImagen {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.ejercicioNombre {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.scroll {
+  width: 90%;
+  max-width: 900px;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.imagenItem {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu ul {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu li {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .changeExercise {
+    padding: 1rem;
+  }
+
+  .rutina {
+    margin-bottom: 1.5rem;
+  }
+
+  .scroll {
+    width: 100%;
+    max-width: none;
+  }
+}

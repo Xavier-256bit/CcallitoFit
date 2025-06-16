@@ -1,0 +1,90 @@
+/* src/components/RDFViewer.module.css */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: #555;
+  margin-top: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.rawCode {
+  background-color: #282c34;
+  color: #61dafb;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8em;
+  }
+
+  .subtitle {
+    font-size: 1.3em;
+  }
+
+  .item {
+    padding: 10px;
+  }
+
+  .rawCode {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5em;
+  }
+
+  .subtitle {
+    font-size: 1.1em;
+  }
+
+  .item {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .rawCode {
+    font-size: 0.8em;
+  }
+}

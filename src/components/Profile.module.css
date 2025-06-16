@@ -1,0 +1,125 @@
+/* src/components/Profile.module.css */
+.profileContainer {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.profileHeader {
+  background-color: #fceabb;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoImg {
+  height: 30px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.contentSection {
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profileNickname {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.profileAvatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.uploadLabel {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.uploadButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.uploadButton:hover {
+  background-color: #45a049;
+}
+
+.message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.profileFooter {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+@media (max-width: 600px) {
+  .profileHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .uploadForm {
+    width: 90%;
+  }
+
+  .uploadButton {
+    width: 100%;
+  }
+}

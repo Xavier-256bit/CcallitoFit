@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="http://schema.org/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dcterms="http://purl.org/dc/terms/">
+
+
+  <rdf:Description rdf:about="http://ccallitofit.com/post">
+    <schema:about rdf:resource="https://dbpedia.org/page/Publication"/>
+    <schema:about rdf:resource="https://dbpedia.org/page/Exercise"/>
+  </rdf:Description>
+
+  
+  <rdf:Description rdf:about="http://ccallitofit.com/login">
+    <schema:relatedLink rdf:resource="https://dbpedia.org/page/Login"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="https://dbpedia.org/page/Login">
+    <owl:sameAs rdf:resource="https://es.dbpedia.org/page/Login"/>
+  </rdf:Description>
+
+ 
+  <rdf:Description rdf:about="http://ccallitofit.com/Home">
+    <dcterms:isPartOf rdf:resource="https://dbpedia.org/page/Home"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="https://dbpedia.org/page/Home">
+    <owl:sameAs rdf:resource="https://es.dbpedia.org/page/Interfaz_de_usuario"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ccallitofit.com/Home">
+    <schema:about rdf:resource="https://dbpedia.org/page/Home_page"/>
+    <rdf:type rdf:resource="https://dbpedia.org/page/Home_page"/>
+    <foaf:page rdf:resource="http://ccallitofit.com/post"/>
+    <foaf:page rdf:resource="http://ccallitofit.com/rutinas"/>
+    <foaf:page rdf:resource="http://ccallitofit.com/Cambio-Ejercicio"/>
+    <foaf:page rdf:resource="http://ccallitofit.com/Profile"/>
+  </rdf:Description>
+
+  
+  <rdf:Description rdf:about="http://ccallitofit.com/Profile">
+    <schema:about rdf:resource="https://dbpedia.org/page/User_profile"/>
+  </rdf:Description>
+
+  
+  <rdf:Description rdf:about="http://ccallitofit.com/rutinas">
+    <schema:about rdf:resource="https://dbpedia.org/page/Schedule"/>
+    <schema:hasPart rdf:resource="https://dbpedia.org/page/Exercise"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="https://dbpedia.org/page/Schedule">
+    <owl:sameAs rdf:resource="https://es.dbpedia.org/page/Horario"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="https://dbpedia.org/page/Exercise">
+    <owl:sameAs rdf:resource="https://es.dbpedia.org/page/Ejercicio_físico"/>
+  </rdf:Description>
+
+  
+  <rdf:Description rdf:about="http://ccallitofit.com/Cambio-Ejercicio">
+    <schema:hasPart rdf:resource="https://dbpedia.org/page/Exercise"/>
+    <rdf:type rdf:resource="https://dbpedia.org/page/Event"/>
+  </rdf:Description>
+
+</rdf:RDF>
