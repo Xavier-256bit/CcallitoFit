@@ -9,15 +9,14 @@ const app = express();
 const port = 5000;
 
 app.use(express.json());
-app.use(cors({
-    origin:'http://192.168.100.7:3000',
-}));
+app.use(cors());
 
 const db = mysql.createConnection({
-  host: '192.168.100.7',
+  host: 'switchback.proxy.rlwy.net',
+  port: 21686,
   user: 'root',
-  password: 'root',
-  database: 'DBP_app',
+  password: 'yvduUHwxKiBWsTWeawEmAXulPwvpRUGN',
+  database: 'railway',
 });
 
 db.connect(err => {
@@ -75,7 +74,7 @@ async function generarRutinaInicial(userId, imc, experiencia,frecuencia) {
             ORDER BY RAND()
             LIMIT ?
         `;
-
+        
         console.log("Valores antes de la consulta:");
         console.log("idMsc:", idMsc, typeof idMsc);
         console.log("nivelDificultad:", nivelDificultad, typeof nivelDificultad);
@@ -116,7 +115,7 @@ app.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(contraseña, salt);
     const query = `
-      INSERT INTO usuarios
+      INSERT INTO usuarios 
         (nombre, apellidos, nickname, contraseña, correo, edad, imc, frecuencia, experiencia)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
@@ -210,7 +209,7 @@ app.post('/upload-avatar', (req, res) => {
 app.get('/usuario/:nickname', (req, res) => {
   const { nickname } = req.params;
   const query = 'SELECT * FROM usuarios WHERE nickname = ?';
-
+  
   db.query(query, [nickname], (err, result) => {
     if (err) return res.status(500).json({ message: 'Error al obtener los datos del usuario' });
     if (result.length === 0) return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -316,7 +315,7 @@ app.get('/rutina/:idUsuario', async (req, res) => {
     `;
 
     const [rows] = await db.promise().query(query, [idUsuario]);
-    console.log("Filas obtenidas de la base de datos:", rows);
+    console.log("Filas obtenidas de la base de datos:", rows); 
 
     const rutinaPorDia = {};
     rows.forEach(row => {
@@ -332,12 +331,12 @@ app.get('/rutina/:idUsuario', async (req, res) => {
   } catch (error) {
     console.error('Error al obtener rutina del usuario:', error);
     res.status(500).json({ message: 'Error al obtener la rutina', error: error.message }); 
-  }
+  }
 });
 
 app.get('/ejercicios/:tipo',(req,res)=>{
     const { tipo } = req.params;
-
+    
     db.query('SELECT * FROM ejercicios WHERE id_msc = ?', [tipo],
         (err,result)=>{
             if(err){
@@ -349,13 +348,13 @@ app.get('/ejercicios/:tipo',(req,res)=>{
     );
 });
 app.post('/ejercicios/porIDs', (req, res) => {
-  const ids = req.body.ids;
+  const ids = req.body.ids;  
 
   if (!Array.isArray(ids) || ids.length === 0) {
     return res.status(400).send("Se necesita un array de tipo válido.");
   }
 
-
+  
   const placeholders = ids.map(() => '?').join(',');
 
   const sql = `SELECT * FROM ejercicios WHERE id_ejercicio IN (${placeholders})`;
@@ -365,14 +364,14 @@ app.post('/ejercicios/porIDs', (req, res) => {
     if (err) {
       return res.status(500).send("Error al obtener ejercicios: " + err);
     }
-    res.json(result);
+    res.json(result);  
   });
 });
 
 app.get('/rutinas_usuario/:id_usuario/:dia', (req, res) => {
   const id = req.params.id_usuario;
-  const dia = req.params.dia;
-
+  const dia = req.params.dia; 
+  
 
   db.query(
     'SELECT * FROM rutinas_usuario WHERE id_usuario = ? AND dia_semana = ?',
@@ -388,13 +387,13 @@ app.get('/rutinas_usuario/:id_usuario/:dia', (req, res) => {
   );
 });
 app.put('/rutinas_usuario/:id_usuario/:dia/:idEjercicio', (req, res) => {
-  const user = req.params.id_usuario;
-  const dia = req.params.dia;
-  const idEjercicio = req.params.idEjercicio;
+  const user = req.params.id_usuario; 
+  const dia = req.params.dia;    
+  const idEjercicio = req.params.idEjercicio; 
 
   const nuevoIdEjercicio = req.body.idEjercicio;
 
-
+  
   const query = `
     UPDATE rutinas_usuario
     SET id_ejercicio = ?
@@ -411,11 +410,11 @@ app.put('/rutinas_usuario/:id_usuario/:dia/:idEjercicio', (req, res) => {
       return res.status(200).json({ message: 'Rutina actualizada correctamente' });
     } else {
       return res.status(404).send('Rutina no encontrada');
-    }
-  });
+    }
+  });
 });
 
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://192.168.100.7:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
