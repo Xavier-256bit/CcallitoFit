@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'switchback.proxy.rlwy.net',
-  port: 21686,
+  host: 'tramway.proxy.rlwy.net',
+  port: 28142,
   user: 'root',
   password: 'yvduUHwxKiBWsTWeawEmAXulPwvpRUGN',
   database: 'railway',
